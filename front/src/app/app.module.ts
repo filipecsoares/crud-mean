@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -21,7 +22,8 @@ import { FuncGetComponent } from './func-get/func-get.component';
     BrowserModule,
     AppRoutingModule,
     SlimLoadingBarModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
