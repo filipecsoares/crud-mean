@@ -1,11 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cors = require('cors');
 // const path = require('path');
 
 const app = express();
+
+const localdatabase = require('./config/database');
+
+mongoose.connect(localdatabase.local.localUrl, { useNewUrlParser: true }).then(() => {
+  console.log('Database conectado com sucesso!');
+}, (err) => {
+  console.log(`Erro ao conectar ao database: ${err}`);
+});
 
 // ROUTERS
 const index = require('./routes/index');
