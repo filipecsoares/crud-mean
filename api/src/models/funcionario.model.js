@@ -13,12 +13,10 @@ const funcionarioSchema = new mongoose.Schema({
   numeroIdentificador: {
     type: Number,
     required: true,
-    max: 8,
   },
 }, {
+  timestamps: true,
   collection: 'funcionario',
 });
 
-const Funcionario = mongoose.model('Funcionario', funcionarioSchema);
-
-module.exports = Funcionario;
+module.exports = mongoose.model('Funcionario', funcionarioSchema);

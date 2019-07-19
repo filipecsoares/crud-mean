@@ -16,6 +16,8 @@ module.exports = {
   },
   rules: {
     'no-console': 'off',
-    'linebreak-style': 'off'
+    'linebreak-style': 'off',
+    'consistent-return': 'off',
+    'arrow-body-style': 'off'
   },
 };
