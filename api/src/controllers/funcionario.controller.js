@@ -15,3 +15,11 @@ exports.create = (req, res) => {
     return res.status(500).send({ message: 'Erro ao criar o Funcionário' || err.message });
   });
 };
+
+exports.findAll = (req, res) => {
+  Funcionario.find().then((funcionarios) => {
+    res.status(200).send(funcionarios);
+  }).catch((err) => {
+    res.status(500).send({ message: 'Erro ao buscar os funcionários.' || err.message });
+  });
+};
