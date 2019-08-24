@@ -58,3 +58,17 @@ exports.update = (req, res) => {
     res.status(500).send({ message: `Erro ao buscar o funcionário ${req.params.id}` });
   });
 };
+
+exports.delete = (req, res) => {
+  Funcionario.findByIdAndDelete(req.params.id).then((funcionario) => {
+    if (!funcionario) {
+      return res.status(404).send({ message: `Funcionário não encontrado ${req.params.id}` });
+    }
+    res.status(200).send({ message: 'Funcionário excluído com sucesso.', funcionario });
+  }).catch((err) => {
+    if (err.kind === 'ObjectId') {
+      return res.status(400).send({ message: `Id não encontrado ${req.params.id}` });
+    }
+    res.status(500).send({ message: `Erro ao excluir o funcionário ${req.params.id}` });
+  });
+};
